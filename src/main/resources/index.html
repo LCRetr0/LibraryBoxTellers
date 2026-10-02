@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LitBox - Consultar Catálogo</title>
+    <link rel="stylesheet" href="./static/css/index.css" />
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>📚 LitBox</h1>
+        <p>Explorar e Consultar Catálogo de Livros | Opinar sobre seus livros favoritos</p>
+    </header>
+
+
+    <section class="top-books-section">
+        <h2>🔥 5 Livros Mais Bem Avaliados do Ano</h2>
+        <div class="top-books-grid" id="topBooksGrid">
+            <!-- Renderizado dinamicamente via JS -->
+        </div>
+    </section>
+
+    <section class="panel">
+        <h3>Catálogo de Livros</h3>
+
+        <!-- Barra de Pesquisa por Nome/Título -->
+        <div class="search-bar">
+            <input
+                    type="text"
+                    id="searchTitleInput"
+                    placeholder="Digite o título do livro (ex: O Hobbit, Clean Code)..."
+            />
+            <button type="button" onclick="searchBookByTitle()">Pesquisar</button>
+            <button type="button" class="btn-cancel" onclick="clearSearch()">Limpar Busca</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Editora</th>
+                    <th>Ano</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody id="booksTableBody">
+                <!-- Linhas preenchidas via JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script src="./Js/index.js"></script>
+</body>
+</html>
