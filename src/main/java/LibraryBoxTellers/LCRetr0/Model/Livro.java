@@ -1,9 +1,13 @@
 package LibraryBoxTellers.LCRetr0.Model;
 
 import LibraryBoxTellers.LCRetr0.DTO.LivroRecord;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import java.util.Objects;
 
+@Entity
+@Table(name = "Livros")
 public class Livro {
 
 
