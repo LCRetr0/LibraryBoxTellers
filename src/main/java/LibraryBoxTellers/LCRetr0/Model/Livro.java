@@ -1,8 +1,7 @@
 package LibraryBoxTellers.LCRetr0.Model;
 
 import LibraryBoxTellers.LCRetr0.DTO.LivroRecord;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -10,13 +9,20 @@ import java.util.Objects;
 @Table(name = "Livros")
 public class Livro {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String titulo;
+    @Column(unique = true)
     private String autor;
+    @Column(unique = true)
     private String isbn;
+    @Column(unique = true)
     private Integer anoPublicacao;
+    @Column(unique = true)
     private String editora;
+    @Column(unique = true)
     private String sinopse;
     private String idioma;
     private Integer numeroPaginas;
@@ -153,3 +159,4 @@ public class Livro {
                 '}';
     }
 }
+
