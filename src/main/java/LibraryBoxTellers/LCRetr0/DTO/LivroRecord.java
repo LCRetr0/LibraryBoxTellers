@@ -1,5 +1,6 @@
 package LibraryBoxTellers.LCRetr0.DTO;
 
+import LibraryBoxTellers.LCRetr0.Model.Categoria;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -40,5 +41,9 @@ public record LivroRecord(
 
         @JsonProperty("numeroPaginas")
         @JsonAlias({"pages", "pageCount", "qtdPaginas"})
-        Integer numeroPaginas
+        Integer numeroPaginas,
+
+        @JsonProperty("categorias")
+        @JsonAlias({"category", "categoria"})
+        Categoria categorias
 ) {}

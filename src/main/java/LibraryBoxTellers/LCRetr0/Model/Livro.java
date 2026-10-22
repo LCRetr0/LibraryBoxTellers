@@ -24,9 +24,12 @@ public class Livro {
     private String editora;
     @Column(unique = true)
     private String sinopse;
+
     private String idioma;
+
     private Integer numeroPaginas;
 
+    private Categoria categoria;
 
     public Livro() {
     }
