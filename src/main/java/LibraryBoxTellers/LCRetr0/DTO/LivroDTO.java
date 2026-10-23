@@ -4,7 +4,7 @@ import LibraryBoxTellers.LCRetr0.Model.Categoria;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record LivroRecord(
+public record LivroDTO(
         @JsonProperty("id")
         @JsonAlias({"bookId", "codigo"})
         Long id,
