@@ -1,6 +1,7 @@
 package LibraryBoxTellers.LCRetr0.DTO;
 
 import LibraryBoxTellers.LCRetr0.Model.Categoria;
+import LibraryBoxTellers.LCRetr0.Model.Livro;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -46,4 +47,21 @@ public record LivroDTO(
         @JsonProperty("categorias")
         @JsonAlias({"category", "categoria"})
         Categoria categorias
-) {}
+
+)
+{
+    public LivroDTO(Livro livro) {
+        this(
+                livro.getId(),
+                livro.getTitulo(),
+                livro.getAutor(),
+                livro.getIsbn(),
+                livro.getAnoPublicacao(),
+                livro.getEditora(),
+                livro.getSinopse(),
+                livro.getIdioma(),
+                livro.getNumeroPaginas(),
+                livro.getCategoria()
+        );
+    }
+}

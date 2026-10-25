@@ -29,6 +29,7 @@ public class Livro {
 
     private Integer numeroPaginas;
 
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
     public Livro() {
@@ -36,7 +37,7 @@ public class Livro {
 
 
     public Livro(Long id, String titulo, String autor, String isbn, Integer anoPublicacao,
-                 String editora, String sinopse, String idioma, Integer numeroPaginas) {
+                 String editora, String sinopse, String idioma, Integer numeroPaginas, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -46,6 +47,7 @@ public class Livro {
         this.sinopse = sinopse;
         this.idioma = idioma;
         this.numeroPaginas = numeroPaginas;
+        this.categoria = categoria;
     }
 
     public Livro(LivroDTO dto) {
@@ -58,6 +60,7 @@ public class Livro {
         this.sinopse = dto.sinopse();
         this.idioma = dto.idioma();
         this.numeroPaginas = dto.numeroPaginas();
+        this.categoria = categoria;
     }
 
     // Getters e Setters
@@ -133,6 +136,14 @@ public class Livro {
         this.numeroPaginas = numeroPaginas;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     //mapeamento para não dar erro no banco
     @Override
     public boolean equals(Object o) {
@@ -159,6 +170,7 @@ public class Livro {
                 ", sinopse='" + sinopse + '\'' +
                 ", idioma='" + idioma + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
+                ", categorias=" + categoria +
                 '}';
     }
 }
