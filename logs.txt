@@ -1,0 +1,8 @@
+out. 30, 2026 2:28:09 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-nio-8080"]
+out. 30, 2026 2:28:09 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+out. 30, 2026 2:28:09 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/11.0.24]
+out. 30, 2026 2:29:00 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service [Tomcat]
