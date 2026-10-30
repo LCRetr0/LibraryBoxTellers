@@ -11,19 +11,20 @@ import java.util.List;
 // https://github.com/ailsonguedes/API-Catalogo-de-Livros
 @Service
 public class ChamadaDeApi {
-    private LivroRepository repositorio;
-    private  RestClient restClient;
+    private final LivroRepository repositorio;
+    private final RestClient restClient;
 
-    public ChamadaDeApi(LivroRepository repositorio) {
 
+    public ChamadaDeApi(LivroRepository repositorio, RestClient.Builder restClientBuilder) {
         this.repositorio = repositorio;
-        LivroDTO[] livrosApi = this.restClient.get()
-                .uri("ttp://localhost:8080")
-                .retrieve()
-                .body(LivroDTO[].class);
+
+        // Aqui configuramos a URL base da API externa que você está consumindo
+        this.restClient = restClientBuilder.baseUrl("http://localhost:8080").build();
     }
+
     public List<LivroDTO> buscarLivrosDaApiExterna() {
         try {
+            // Como a baseUrl já foi definida no construtor, passamos apenas o endpoint correto
             LivroDTO[] livrosApi = this.restClient.get()
                     .uri("/api/livros")
                     .retrieve()
