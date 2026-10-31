@@ -19,8 +19,8 @@ public class ChamadaDeApi {
     public ChamadaDeApi(LivroRepository repositorio) {
         this.repositorio = repositorio;
 
-
-        this.restClient = RestClient.builder().baseUrl("http://localhost:8080").build();
+//A api roda na porta 8000
+        this.restClient = RestClient.builder().baseUrl("http://localhost:8000").build();
     }
 
     public List<LivroDTO> buscarLivrosDaApiExterna() {
