@@ -46,7 +46,7 @@ public record LivroDTO(
 
         @JsonProperty("categorias")
         @JsonAlias({"category", "categoria"})
-        Categoria categorias
+        Categoria categoria
 
 )
 {

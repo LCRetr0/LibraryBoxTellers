@@ -23,13 +23,14 @@ public class LcRetr0Application implements CommandLineRunner {
 
     private static void configurarArquivoDeLog() {
         try {
-            FileHandler fileHandler = new FileHandler("LibraryBox.txt", true);
+            FileHandler fileHandler = new FileHandler("LibraryBoxTellers/LCRetr0/logs/LibraryBox.txt", true);
             fileHandler.setFormatter(new SimpleFormatter());
 
             // Pega o logger raiz e adiciona o arquivo de saída
             Logger rootLogger = Logger.getLogger("");
             rootLogger.addHandler(fileHandler);
             rootLogger.setLevel(Level.INFO);
+            rootLogger.setLevel(Level.WARNING);
 
         } catch (IOException e) {
             System.err.println("Não foi possível configurar o arquivo de logs: " + e.getMessage());

@@ -60,7 +60,7 @@ public class Livro {
         this.sinopse = dto.sinopse();
         this.idioma = dto.idioma();
         this.numeroPaginas = dto.numeroPaginas();
-        this.categoria = categoria;
+        this.categoria = dto.categoria();
     }
 
     // Getters e Setters
