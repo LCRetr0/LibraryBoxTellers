@@ -1,2 +1,3 @@
-Apague a tabela de erro do livro para que programa rode corretamente;
+logs não estão salvando;
 Atribua com th/thymeleaf logo aos html pra que quando rodem os testes o programa funcione;
+aplicação já está chamando Api;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LitBox - Consultar Catálogo</title>
-    <link rel="stylesheet" href="./static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/index.css" />
 </head>
 <body>
 
@@ -19,6 +19,7 @@
     <section class="top-books-section">
         <h2> Os 5 Livros Mais Bem Avaliados do Ano</h2>
         <div class="top-books-grid" id="topBooksGrid">
+            <span th:text="${capaUrl}"></span>
             <span th:text="${titulo}"></span>
         </div>
     </section>

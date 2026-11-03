@@ -23,7 +23,7 @@ public class LcRetr0Application implements CommandLineRunner {
 
     private static void configurarArquivoDeLog() {
         try {
-            FileHandler fileHandler = new FileHandler("LibraryBoxTellers/LCRetr0/logs/LibraryBox.txt", true);
+            FileHandler fileHandler = new FileHandler("./logs/LibraryBox.log", true);
             fileHandler.setFormatter(new SimpleFormatter());
 
             // Pega o logger raiz e adiciona o arquivo de saída

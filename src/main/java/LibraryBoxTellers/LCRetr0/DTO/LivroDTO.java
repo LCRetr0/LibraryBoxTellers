@@ -26,8 +26,6 @@ public record LivroDTO(
         @JsonAlias({"publicationYear", "year"})
         Integer anoPublicacao,
 
-
-
         @JsonProperty("editora")
         @JsonAlias("publisher")
         String editora,
@@ -46,8 +44,11 @@ public record LivroDTO(
 
         @JsonProperty("categorias")
         @JsonAlias({"category", "categoria"})
-        Categoria categoria
+        Categoria categoria,
 
+        @JsonProperty("capaUrl")
+        @JsonAlias({"thumbnail", "coverUrl", "image", "capa"})
+        String capaUrl
 )
 {
     public LivroDTO(Livro livro) {
@@ -61,7 +62,8 @@ public record LivroDTO(
                 livro.getSinopse(),
                 livro.getIdioma(),
                 livro.getNumeroPaginas(),
-                livro.getCategoria()
+                livro.getCategoria(),
+                livro.getCapaUrl()
         );
     }
 }

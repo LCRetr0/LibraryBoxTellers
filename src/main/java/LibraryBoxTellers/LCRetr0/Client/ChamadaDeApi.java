@@ -13,32 +13,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-// https://github.com/ailsonguedes/API-Catalogo-de-Livros
+// Api googles Books
 @Service
 public class ChamadaDeApi {
     private final LivroRepository repositorio;
     private final RestClient restClient;
     private static final Logger logger = Logger.getLogger(ChamadaDeApi.class.getName());
-    private static void configurarArquivoDeLog() {
-        try {
-            FileHandler fileHandler = new FileHandler("LibraryBoxTellers/LCRetr0/logs/LibraryBox.txt", true);
-            fileHandler.setFormatter(new SimpleFormatter());
 
-            // Pega o logger raiz e adiciona o arquivo de saída
-            Logger rootLogger = Logger.getLogger("");
-            rootLogger.addHandler(fileHandler);
-            rootLogger.setLevel(Level.INFO);
-            rootLogger.setLevel(Level.WARNING);
-
-        } catch (IOException e) {
-            System.err.println("Não foi possível configurar o arquivo de logs: " + e.getMessage());
-        }
-    }
     public ChamadaDeApi(LivroRepository repositorio) {
         this.repositorio = repositorio;
 
 //A api roda na porta 8000
-        this.restClient = RestClient.builder().baseUrl("http://localhost:8000").build();
+        this.restClient = RestClient.builder().baseUrl("https://www.googleapis.com/books/v1/").build();
     }
 
     public List<LivroDTO> buscarLivrosDaApiExterna() {

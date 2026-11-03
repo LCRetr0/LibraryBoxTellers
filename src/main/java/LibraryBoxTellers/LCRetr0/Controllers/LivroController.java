@@ -25,7 +25,7 @@ public class LivroController {
         return livro.obterTodosOsLivros();
     }
 
-    @GetMapping
+    @GetMapping("/externos")
     public List<LivroDTO> listarLivrosExternos() {
         return livro.obterLivrosDaApi();
     }

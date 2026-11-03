@@ -16,11 +16,12 @@ public class Livro {
     private String titulo;
 
     private String autor;
+
     @Column(unique = true)
     private String isbn;
 
     private Integer anoPublicacao;
-    @Column(unique = true)
+
     private String editora;
 
     private String sinopse;
@@ -32,12 +33,15 @@ public class Livro {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
+    // Novo campo para armazenar a URL da capa da imagem
+    private String capaUrl;
+
     public Livro() {
     }
 
-
     public Livro(Long id, String titulo, String autor, String isbn, Integer anoPublicacao,
-                 String editora, String sinopse, String idioma, Integer numeroPaginas, Categoria categoria) {
+                 String editora, String sinopse, String idioma, Integer numeroPaginas,
+                 Categoria categoria, String capaUrl) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -48,6 +52,7 @@ public class Livro {
         this.idioma = idioma;
         this.numeroPaginas = numeroPaginas;
         this.categoria = categoria;
+        this.capaUrl = capaUrl;
     }
 
     public Livro(LivroDTO dto) {
@@ -61,6 +66,7 @@ public class Livro {
         this.idioma = dto.idioma();
         this.numeroPaginas = dto.numeroPaginas();
         this.categoria = dto.categoria();
+        this.capaUrl = dto.capaUrl();
     }
 
     // Getters e Setters
@@ -144,7 +150,15 @@ public class Livro {
         this.categoria = categoria;
     }
 
-    //mapeamento para não dar erro no banco
+    public String getCapaUrl() {
+        return capaUrl;
+    }
+
+    public void setCapaUrl(String capaUrl) {
+        this.capaUrl = capaUrl;
+    }
+
+    // Mapeamento para não dar erro no banco
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -170,8 +184,8 @@ public class Livro {
                 ", sinopse='" + sinopse + '\'' +
                 ", idioma='" + idioma + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
-                ", categorias=" + categoria +
+                ", categoria=" + categoria +
+                ", capaUrl='" + capaUrl + '\'' +
                 '}';
     }
 }
-
