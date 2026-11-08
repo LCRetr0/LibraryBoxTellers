@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LitBox - Consultar Catálogo</title>
-    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
 </head>
 <body>
 
@@ -28,15 +27,16 @@
         <h3>Catálogo de Livros</h3>
 
         <!-- Barra de Pesquisa por Nome/Título -->
-        <div class="search-bar">
+        <form action="/externo" method="GET" class="search-bar">
             <input
                     type="text"
                     id="searchTitleInput"
-                    placeholder="Digite o título do livro (ex: O Hobbit, Clean Code)..."
+                    name="termo"
+                    placeholder="Digite o título do livro (ex: Java, Clean Code)..."
             />
-            <button type="button" onclick="searchBookByTitle()">Pesquisar</button>
-            <button type="button" class="btn-cancel" onclick="clearSearch()">Limpar Busca</button>
-        </div>
+            <button type="submit">Pesquisar</button>
+            <a href="/" class="btn-cancel" style="text-decoration: none; padding: 10px; display: inline-block; text-align: center;">Limpar Busca</a>
+        </form>
 
         <div class="table-container">
             <table>
@@ -50,7 +50,21 @@
                 </tr>
                 </thead>
                 <tbody id="booksTableBody">
-                <!-- Linhas preenchidas via thymeleaf -->
+                <!-- Linhas geradas dinamicamente pelo Thymeleaf -->
+                <tr th:each="livro : ${livros}">
+                    <td th:text="${livro.titulo}">Título padrão</td>
+                    <td th:text="${livro.autor}">Autor padrão</td>
+                    <td th:text="${livro.editora}">Editora padrão</td>
+                    <td th:text="${livro.ano}">Ano padrão</td>
+                    <td>
+                        <button type="button">Detalhes</button>
+                    </td>
+                </tr>
+
+                <!-- Mensagem de segurança caso a lista esteja vazia -->
+                <tr th:if="${#lists.isEmpty(livros)}">
+                    <td colspan="5" style="text-align: center;">Nenhum livro encontrado.</td>
+                </tr>
                 </tbody>
             </table>
         </div>

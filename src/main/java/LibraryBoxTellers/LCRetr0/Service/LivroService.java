@@ -26,7 +26,7 @@ public class LivroService {
         this.chamadaDeApi = chamadaDeApi;
     }
 
-    // Método que busca do banco de dados local
+    // Metodo que busca do banco de dados local
     public List<LivroDTO> obterTodosOsLivros() {
         List<Livro> livros = repositorio.findAll();
         return livros.stream()
@@ -36,6 +36,12 @@ public class LivroService {
 
     // Puxa da API externa (usando o "/api/livros")
     public List<LivroDTO> obterLivrosDaApi() {
-        return chamadaDeApi.buscarLivrosDaApiExterna();
+
+        return chamadaDeApi.buscarLivrosDaApiExterna("java");
+    }
+
+    public List<LivroDTO> obterLivrosDaApiComTermo(String termo) {
+
+        return chamadaDeApi.buscarLivrosDaApiExterna(termo);
     }
 }
